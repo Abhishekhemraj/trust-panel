@@ -1,16 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
-import { GROK_API_URL, GROK_MODEL, getGrokHeaders } from "@/config/api";
+import { GROQ_API_URL, GROQ_MODEL, getGroqHeaders } from "@/config/api";
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const { messages } = body;
 
-    const response = await fetch(GROK_API_URL, {
+    const response = await fetch(GROQ_API_URL, {
       method: "POST",
-      headers: getGrokHeaders(),
+      headers: getGroqHeaders(),
       body: JSON.stringify({
-        model: GROK_MODEL,
+        model: GROQ_MODEL,
         messages: [
           {
             role: "system",
@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error("Grok API error:", response.status, errorText);
+      console.error("Groq API error:", response.status, errorText);
       return NextResponse.json(
         { error: `Grok API error: ${response.status}` },
         { status: response.status }

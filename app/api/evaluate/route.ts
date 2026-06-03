@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { GROQ_API_URL, GROQ_MODEL, getGroQHeaders } from "@/config/api";
+import { GROQ_API_URL, GROQ_MODEL, getGroqHeaders } from "@/config/api";
 import {
   EVALUATION_SYSTEM_PROMPT,
   buildEvaluationPrompt,
@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const response = await fetch(GROK_API_URL, {
+    const response = await fetch(GROQ_API_URL, {
       method: "POST",
       headers: getGroqHeaders(),
       body: JSON.stringify({

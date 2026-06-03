@@ -1,12 +1,12 @@
-export const GROK_API_URL = "https://api.x.ai/v1/chat/completions";
-export const GROK_MODEL = "grok-4-1-fast";
+export const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
+export const GROQ_MODEL = "mixtral-8x7b-32768";
 
 export const BRAVE_SEARCH_URL = "https://api.search.brave.com/res/v1/web/search";
 
-export function getGrokHeaders(): Record<string, string> {
+export function getGroqHeaders(): Record<string, string> {
   return {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${process.env.GROK_API_KEY}`,
+    Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
   };
 }
 

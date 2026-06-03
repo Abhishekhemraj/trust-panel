@@ -1,5 +1,5 @@
 export const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
-export const GROQ_MODEL = "mixtral-8x7b-32768";
+export const GROQ_MODEL = "llama-3.3-70b-versatile";
 
 export const BRAVE_SEARCH_URL = "https://api.search.brave.com/res/v1/web/search";
 

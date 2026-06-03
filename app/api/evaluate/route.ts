@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { GROK_API_URL, GROK_MODEL, getGrokHeaders } from "@/config/api";
+import { GROQ_API_URL, GROQ_MODEL, getGroQHeaders } from "@/config/api";
 import {
   EVALUATION_SYSTEM_PROMPT,
   buildEvaluationPrompt,
@@ -20,9 +20,9 @@ export async function POST(req: NextRequest) {
 
     const response = await fetch(GROK_API_URL, {
       method: "POST",
-      headers: getGrokHeaders(),
+      headers: getGroqHeaders(),
       body: JSON.stringify({
-        model: GROK_MODEL,
+        model: GROQ_MODEL,
         messages: [
           {
             role: "system",
@@ -40,9 +40,9 @@ export async function POST(req: NextRequest) {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error("Grok evaluation error:", response.status, errorText);
+      console.error("Groq evaluation error:", response.status, errorText);
       return NextResponse.json(
-        { error: `Grok API error: ${response.status}` },
+        { error: `Groq API error: ${response.status}` },
         { status: response.status }
       );
     }
